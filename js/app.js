@@ -16,14 +16,14 @@ fetch("https://raw.githubusercontent.com/FRomero999/ExamenDIW2022/main/rutas_arq
         let wrap = document.createElement("div");
         
         let nuevaRuta = plantilla.content.cloneNode(true);
-        nuevaRuta.querySelector("h3").textContent = el.properties.nombre;
-        nuevaRuta.querySelector("p").textContent = el.properties.horario;
+        nuevaRuta.querySelector(".titulo").textContent = el.properties.nombre;
+        nuevaRuta.querySelector(".horario").textContent = el.properties.horario;
         nuevaRuta.querySelector(".direccion").textContent = el.properties.direccion;
 
         let telefono = nuevaRuta.querySelector(".telefono");
 
         if (el.properties.telefono === "") {
-            telefono.remove();
+            nuevaRuta.querySelector(".label-tel").remove();
         } else {
             telefono.textContent = el.properties.telefono;
         }
@@ -47,3 +47,10 @@ fetch("https://raw.githubusercontent.com/FRomero999/ExamenDIW2022/main/rutas_arq
   .catch( err => {
       alert("Hubo error: " + err +".")
   });
+
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
